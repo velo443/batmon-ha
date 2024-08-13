@@ -34,7 +34,10 @@ logger.info(f'bleak {installed_ver} installed, want {ver}, running pip3 ' + ' '.
 logger.info('influxdb installed=%s need=%s', influxdb_installed, need_influxdb)
 
 p = subprocess.Popen(["pip3"] + args, stdout=sys.stdout, stderr=sys.stderr)  # , stdout=subprocess.PIPE)
-p.wait(timeout=120)
+
+# configurable timeout since 120 wasn't long enough
+install_timeout = float(user_config.get('bleak_install_timeout', 120.0))
+p.wait(timeout=install_timeout)
 
 #sys.exit(p.returncode)
 

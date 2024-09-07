@@ -82,7 +82,7 @@ def _sok_command(command: int):
 class SokBt(BtBms):
     UUID_RX = '0000ffe1-0000-1000-8000-00805f9b34fb'
     UUID_TX = '0000ffe2-0000-1000-8000-00805f9b34fb'
-    TIMEOUT = 10
+    TIMEOUT = 30
 
     def __init__(self, address, **kwargs):
         super().__init__(address, **kwargs)
